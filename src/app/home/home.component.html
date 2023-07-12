@@ -1,0 +1,41 @@
+<h1 class="text-center pb-2">To do:</h1>
+<form (ngSubmit)="onSubmit(task)" class="pb-4" #task="ngForm">
+  <div class="form-group">
+    <input
+      ngModel
+      name="toDoTask"
+      type="text"
+      class="form-control"
+      placeholder="Enter new task"
+      required
+    />
+  </div>
+  <button [disabled]="task.invalid" type="submit" class="btn btn-primary mt-3">
+    Submit
+  </button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Done</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks; index as i">
+      <td>{{ task.toDoTask }}</td>
+      <td><input type="checkbox" /></td>
+      <td class="text-end">
+        <button class="btn btn-primary btn-sm me-2">
+          <i class="bi bi-pencil"></i>
+          Edit
+        </button>
+        <button class="btn btn-danger btn-sm">
+          <i class="bi bi-trash"></i>
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
