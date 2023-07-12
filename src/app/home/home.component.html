@@ -24,14 +24,33 @@
   </thead>
   <tbody>
     <tr *ngFor="let task of tasks; index as i">
-      <td>{{ task.toDoTask }}</td>
-      <td><input type="checkbox" /></td>
+      <td
+        [class.text-decoration-line-through]="task.done"
+        class="text-capitalize"
+      >
+        {{ task.toDoTask }}
+      </td>
+      <td><input (change)="onCheck(i)" type="checkbox" /></td>
       <td class="text-end">
-        <button class="btn btn-primary btn-sm me-2">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#editModal"
+          class="btn btn-primary btn-sm me-2"
+          (click)="setIndex(i)"
+          [disabled]="task.done"
+        >
           <i class="bi bi-pencil"></i>
           Edit
         </button>
-        <button class="btn btn-danger btn-sm">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#confirmationModal"
+          class="btn btn-danger btn-sm"
+          (click)="setIndex(i)"
+          [disabled]="task.done"
+        >
           <i class="bi bi-trash"></i>
           Delete
         </button>
@@ -39,3 +58,87 @@
     </tr>
   </tbody>
 </table>
+
+<!-- Confirmation Modal -->
+<div
+  class="modal fade"
+  id="confirmationModal"
+  tabindex="-1"
+  aria-labelledby="confirmationModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure you want to delete that task?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="onDelete(chosenIndex)"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form (ngSubmit)="onEdit(editTask, chosenIndex)" #editTask="ngForm">
+        <div class="form-group">
+          <input
+            ngModel
+            name="toDoTask"
+            type="text"
+            class="form-control"
+            placeholder="Enter new task"
+            required
+          />
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button
+          [disabled]="editTask.invalid"
+          type="submit"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="onEdit(editTask, chosenIndex)"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
