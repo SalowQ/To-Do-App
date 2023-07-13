@@ -1,55 +1,23 @@
 {
   "tasks": [
     {
+      "id": 1,
       "toDoTask": "buy sponges",
-      "done": false
+      "done": true
     },
     {
+      "id": 2,
       "toDoTask": "wash car",
-      "done": false
-    },
-    {
-      "toDoTask": "piano class",
-      "done": false
-    },
-    {
-      "id": 4,
-      "toDoTask": "comprar bolo",
-      "done": false
+      "done": true
     },
     {
       "id": 5,
-      "toDoTask": "ir para casa",
-      "done": false
-    },
-    {
-      "id": 6,
-      "toDoTask": "comprar bolo",
-      "done": false
-    },
-    {
-      "id": 7,
-      "toDoTask": "comprar bolo",
+      "toDoTask": "sair",
       "done": false
     },
     {
       "id": 8,
-      "toDoTask": "ir para casa",
-      "done": false
-    },
-    {
-      "id": 9,
-      "toDoTask": "comprar bolo",
-      "done": false
-    },
-    {
-      "id": 10,
-      "toDoTask": "comprar bolo",
-      "done": false
-    },
-    {
-      "id": 11,
-      "toDoTask": "ir para casa",
+      "toDoTask": "varrer o chão",
       "done": false
     }
   ]

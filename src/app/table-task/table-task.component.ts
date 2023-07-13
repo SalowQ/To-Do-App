@@ -28,26 +28,29 @@ export class TableTaskComponent implements OnChanges {
       this.service.list().subscribe((tasks) => {
         this.tasks = tasks;
       });
+      console.log('onchanges');
     }
   }
 
   onCheck(index: number) {
     this.tasks[index].done = !this.tasks[index].done;
-    console.log(this.tasks);
+    this.service.edit(this.tasks[index]).subscribe();
   }
 
-  setIndex(index: number) {
+  setTask(index: number) {
     this.chosenIndex = index;
   }
 
   onDelete(index: number) {
-    this.tasks.splice(index, 1);
-    console.log(this.tasks);
+    this.service.delete(this.tasks[index]).subscribe(() => {
+      this.tasks.splice(index, 1);
+    });
   }
 
   onEdit(form: NgForm, index: number) {
-    console.log(form, index);
     this.tasks[index].toDoTask = form.controls['toDoTask'].value;
-    form.reset();
+    this.service.edit(this.tasks[index]).subscribe(() => {
+      form.reset();
+    });
   }
 }

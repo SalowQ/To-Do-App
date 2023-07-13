@@ -17,4 +17,14 @@ export class TaskService {
   create(task: Task): Observable<Task> {
     return this.http.post<Task>(this.API, task);
   }
+
+  edit(task: Task): Observable<Task> {
+    const url = `${this.API}/${task.id}`;
+    return this.http.put<Task>(url, task);
+  }
+
+  delete(task: Task): Observable<Task> {
+    const url = `${this.API}/${task.id}`;
+    return this.http.delete<Task>(url);
+  }
 }

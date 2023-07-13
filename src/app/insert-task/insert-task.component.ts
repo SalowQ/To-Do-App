@@ -20,6 +20,7 @@ export class InsertTaskComponent implements OnInit {
   ngOnInit(): void {
     this.service.list().subscribe((tasks) => {
       this.index = tasks.length;
+      console.log(this.index);
     });
   }
 
