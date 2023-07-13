@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit(task)" class="pb-4" #task="ngForm">
+  <div class="form-group">
+    <input
+      ngModel
+      name="toDoTask"
+      type="text"
+      class="form-control"
+      placeholder="Enter new task"
+      required
+    />
+  </div>
+  <button
+    [disabled]="task.invalid"
+    type="submit"
+    class="btn btn-primary mt-3"
+    (click)="emit()"
+  >
+    Submit
+  </button>
+</form>
