@@ -13,20 +13,19 @@ import { Output, EventEmitter } from '@angular/core';
 export class InsertTaskComponent implements OnInit {
   @Output() submit = new EventEmitter<number>();
   task?: Task;
-  index: number = 0;
+  uniqueId: number = 0;
 
   constructor(private service: TaskService, private router: Router) {}
 
   ngOnInit(): void {
-    this.service.list().subscribe((tasks) => {
-      this.index = tasks.length;
-      console.log(this.index);
-    });
+    // this.service.list().subscribe((tasks) => {
+    //   this.length = tasks.length;
+    // });
   }
 
   onSubmit(form: NgForm) {
     this.task = {
-      id: this.index + 1,
+      id: this.uniqueId,
       toDoTask: form.controls['toDoTask'].value,
       done: false,
     };
@@ -37,6 +36,6 @@ export class InsertTaskComponent implements OnInit {
   }
 
   emit() {
-    this.submit.emit(this.index);
+    this.submit.emit(this.uniqueId);
   }
 }

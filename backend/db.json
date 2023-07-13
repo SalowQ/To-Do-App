@@ -11,13 +11,23 @@
       "done": true
     },
     {
-      "id": 5,
-      "toDoTask": "sair",
+      "id": 4,
+      "toDoTask": "ir para casa",
       "done": false
     },
     {
-      "id": 8,
-      "toDoTask": "varrer o chão",
+      "id": 6,
+      "toDoTask": "comprar bolo",
+      "done": false
+    },
+    {
+      "id": 9,
+      "toDoTask": "passear com lana",
+      "done": false
+    },
+    {
+      "id": 10,
+      "toDoTask": "comprar bolo",
       "done": false
     }
   ]
