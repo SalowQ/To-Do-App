@@ -1,27 +1,30 @@
-# DesafioElogica
+# ToDoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+Aplicação simples para registro de tarefas a fazer. É possível edição, exclusão e marcá-las como concluídas. Ela se comunica com uma API mockada pelo JSON-server.
 
-## Development server
+## Stack utilizada
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Front-end:** Angular, Bootstrap
 
-## Code scaffolding
+**Back-end:** Node.js, JSON-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalação
 
-## Build
+Para executar a aplicação, é necessário realizar a instalação e rodar tanto o servidor da API (localizado na pasta backend) quanto a aplicação.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+  cd desafio-elogica
+  cd backend
+  npm install
+  npm start
+```
 
-## Running unit tests
+```bash
+  cd desafio-elogica
+  npm install
+  npm start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Demonstração
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![App Screenshot](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3ZxcG11N2d4ZHBycjJ2dmVpaGFvaTc2bWt5djN0eDVpdmF2aHlxNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UDaIJYm72UilavCpHO/giphy.gif)
