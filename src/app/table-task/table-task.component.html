@@ -1,4 +1,4 @@
-<table class="table">
+<table *ngIf="tasks.length > 0" class="table table-secondary table-striped">
   <thead>
     <tr>
       <th>Task</th>
@@ -15,7 +15,12 @@
         {{ task.toDoTask }}
       </td>
       <td>
-        <input (change)="onCheck(i)" [ngModel]="task.done" type="checkbox" />
+        <input
+          (change)="onCheck(i)"
+          [ngModel]="task.done"
+          type="checkbox"
+          class="form-check-input"
+        />
       </td>
       <td class="text-end">
         <button
@@ -63,7 +68,7 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">Are you sure you want to delete that task?</div>
+      <div class="modal-body">Are you sure you want to delete this task?</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           No
@@ -99,21 +104,25 @@
           aria-label="Close"
         ></button>
       </div>
-      <form (ngSubmit)="onEdit(editTask, chosenIndex)" #editTask="ngForm">
+      <form
+        (ngSubmit)="onEdit(editTask, chosenIndex)"
+        #editTask="ngForm"
+        class="m-4"
+      >
         <div class="form-group">
           <input
             ngModel
             name="toDoTask"
             type="text"
             class="form-control"
-            placeholder="Enter new task"
+            placeholder="Rename task"
             required
           />
         </div>
       </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          No
+          Cancel
         </button>
         <button
           [disabled]="editTask.invalid"

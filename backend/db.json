@@ -1,34 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": 1,
-      "toDoTask": "buy sponges",
-      "done": true
-    },
-    {
-      "id": 2,
-      "toDoTask": "wash car",
-      "done": true
-    },
-    {
-      "id": 4,
-      "toDoTask": "ir para casa",
-      "done": false
-    },
-    {
-      "id": 6,
-      "toDoTask": "comprar bolo",
-      "done": false
-    },
-    {
-      "id": 9,
-      "toDoTask": "passear com lana",
-      "done": false
-    },
-    {
-      "id": 10,
-      "toDoTask": "comprar bolo",
-      "done": false
-    }
-  ]
+  "tasks": []
 }

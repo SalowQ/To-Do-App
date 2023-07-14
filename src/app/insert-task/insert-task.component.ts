@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TaskService } from '../task.service';
 import { Task } from '../task';
-import { Router } from '@angular/router';
 import { Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -10,18 +9,12 @@ import { Output, EventEmitter } from '@angular/core';
   templateUrl: './insert-task.component.html',
   styleUrls: ['./insert-task.component.sass'],
 })
-export class InsertTaskComponent implements OnInit {
+export class InsertTaskComponent {
   @Output() submit = new EventEmitter<number>();
   task?: Task;
   uniqueId: number = 0;
 
-  constructor(private service: TaskService, private router: Router) {}
-
-  ngOnInit(): void {
-    // this.service.list().subscribe((tasks) => {
-    //   this.length = tasks.length;
-    // });
-  }
+  constructor(private service: TaskService) {}
 
   onSubmit(form: NgForm) {
     this.task = {
